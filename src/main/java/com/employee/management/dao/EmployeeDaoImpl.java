@@ -39,6 +39,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
                 String[] data = line.split(",");
 
+
                 if (data.length != 6) {
                     // Handle the error for an incomplete record
                     System.out.println("Incomplete record: " + line);
