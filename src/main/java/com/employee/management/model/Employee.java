@@ -9,6 +9,7 @@ import lombok.*;
 @NoArgsConstructor
 public class Employee {
     private int age;
+
     private String gender;
     private String educationLevel;
     private String jobTitle;
