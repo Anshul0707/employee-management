@@ -12,5 +12,4 @@ import org.springframework.jdbc.core.JdbcTemplate;
 @NoArgsConstructor
 public class DatabaseConfiguration {
     private JdbcTemplate jdbcTemplate;
-
 }
