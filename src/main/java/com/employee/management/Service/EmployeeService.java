@@ -12,12 +12,14 @@ import java.util.List;
 
 @Service
 public class EmployeeService {
-    private static final String JSON_FILE_PATH = "Data/employees.json";
+    private static final String JSON_FILE_PATH = "src/main/resources/Data/employees.json";
     private final ObjectMapper objectMapper = new ObjectMapper();
+    File file = new File(JSON_FILE_PATH);
+    private long nextId = 1;
 
     public List<Employee> getAllEmployees() {
         try {
-            return objectMapper.readValue( new File(JSON_FILE_PATH),new TypeReference<List<Employee>>() {
+            return objectMapper.readValue(file, new TypeReference<List<Employee>>() {
             });
         } catch (IOException e) {
             return new ArrayList<>();
@@ -25,11 +27,17 @@ public class EmployeeService {
     }
 
     public Employee getEmployeeById(Long id) {
-        return getAllEmployees().stream().filter(employee -> employee.getId().equals(id)).findFirst().orElse(null);
+        for (Employee employee : getAllEmployees()) {
+            if (employee.getId().equals(id)) {
+                return employee;
+            }
+        }
+        return null;
     }
 
     public void addEmployee(Employee employee) {
         List<Employee> employees = getAllEmployees();
+        employee.setId(nextId++);
         employees.add(employee);
         saveEmployees(employees);
     }
@@ -49,7 +57,7 @@ public class EmployeeService {
 
     private void saveEmployees(List<Employee> employees) {
         try {
-            objectMapper.writeValue(new File(JSON_FILE_PATH), employees);
+            objectMapper.writeValue(file, employees);
         } catch (IOException e) {
             e.printStackTrace();
         }

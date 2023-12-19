@@ -187,8 +187,6 @@ b
 2.idea/libraries/Maven__org_yaml_snakeyaml_1_30.xml,3\c\3c9053362206afff74805f76190a4db80d948973
 i
 9.idea/libraries/Maven__org_xmlunit_xmlunit_core_2_9_0.xml,8\4\84f2ecf757628dc157db06b2c9aa0786a852e4b8
-s
-Csrc/main/java/com/employee/management/config/ApplicationConfig.java,1\6\16bf97e20ac4631cc2dd52f57954258e6f6bf76f
 S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
 ]

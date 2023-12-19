@@ -191,5 +191,3 @@ S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
 ]
 -.idea/sonarlint/securityhotspotstore/index.pb,8\8\88a9255124c95bdc913197c120a8d560edc59c8e
-s
-Csrc/main/java/com/employee/management/config/ApplicationConfig.java,1\6\16bf97e20ac4631cc2dd52f57954258e6f6bf76f
