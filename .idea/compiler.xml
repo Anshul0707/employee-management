@@ -11,12 +11,12 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="employee-management" target="1.8" />
+      <module name="employee-management" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="employee-management" options="-parameters" />
+      <module name="employee-management" options="" />
     </option>
   </component>
 </project>

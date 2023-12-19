@@ -14,8 +14,15 @@ import java.util.List;
 public class EmployeeService {
     private static final String JSON_FILE_PATH = "src/main/resources/Data/employees.json";
     private final ObjectMapper objectMapper = new ObjectMapper();
-    File file = new File(JSON_FILE_PATH);
+    static File file = new File(JSON_FILE_PATH);
     private long nextId = 1;
+
+    static {
+        File parentDir = file.getParentFile();
+        if (!parentDir.exists()) {
+            parentDir.mkdirs();
+        }
+    }
 
     public List<Employee> getAllEmployees() {
         try {
@@ -66,6 +73,9 @@ public class EmployeeService {
 
     private void saveEmployees(List<Employee> employees) {
         try {
+            if(!file.exists()){
+                file.createNewFile();
+            }
             objectMapper.writeValue(file, employees);
         } catch (IOException e) {
             e.printStackTrace();
