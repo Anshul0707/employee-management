@@ -43,15 +43,24 @@ public class EmployeeService {
     }
 
     public void updateEmployee(Long id, Employee updatedEmployee) {
+        deleteEmployee(id);
         List<Employee> employees = getAllEmployees();
-        employees.removeIf(employee -> employee.getId().equals(id));
+//        employees.removeIf(employee -> employee.getId().equals(id));
+        updatedEmployee.setId(id);
         employees.add(updatedEmployee);
         saveEmployees(employees);
     }
 
     public void deleteEmployee(Long id) {
         List<Employee> employees = getAllEmployees();
-        employees.removeIf(employee -> employee.getId().equals(id));
+        List<Employee> removeEmployees = new ArrayList<>();
+//        employees.removeIf(employee -> employee.getId().equals(id));
+        for (Employee employee : employees) {
+            if (employee.getId().equals(id)) {
+                removeEmployees.add(employee);
+            }
+        }
+        employees.removeAll(removeEmployees);
         saveEmployees(employees);
     }
 
